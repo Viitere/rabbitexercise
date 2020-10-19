@@ -1,0 +1,15 @@
+{
+  "name": "vendor_name/dockerRabbit",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "isoE",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "php-amqplib/php-amqplib": ">=2.9.0"
+  }
+}

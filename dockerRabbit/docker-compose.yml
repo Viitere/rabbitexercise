@@ -1,0 +1,45 @@
+version: '3.1'
+
+services:
+  orig:
+    build: ./ORIG
+    volumes:
+      - ./orig:/usr/src/app
+    ports:
+      - 3000:3000
+    depends_on:
+        - obse
+        - rabbitmq3
+
+  imed:
+    build: ./IMED
+    volumes:
+      - ./imed:/usr/src/app
+    ports:
+      - 3001:3001
+    depends_on:
+      - obse
+      - rabbitmq3
+
+  obse:
+    build: ./OBSE
+    volumes:
+      - ./obse:/usr/src/app
+    ports:
+      - 3002:3002
+    depends_on:
+      - rabbitmq3
+
+  php:
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - ./src:/var/www/html/
+
+  rabbitmq3:
+    image: rabbitmq:3-management
+    ports:
+      - 15672:15672
