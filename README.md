@@ -1,8 +1,8 @@
 How to:
 
-git clone https://github.com/Viitere/rabbit.git
+git clone https://github.com/Viitere/rabbitexercise.git
 
-cd rabbitexercise
+cd dockerRabbit
 
 docker-compose up --build
 
